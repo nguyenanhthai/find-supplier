@@ -15,6 +15,9 @@ class ExampleTest extends TestCase
     public function test_exact_mode()
     {
         $this->artisan('find:supplier')
+            ->expectsTable(['Supplier Name', 'Match Point'], [
+                ['Demo Company', '100'],
+            ])
             ->expectsOutput('DONE. Finished Test.')
             ->assertExitCode(0);
     }
